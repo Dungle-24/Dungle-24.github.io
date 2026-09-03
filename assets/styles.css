@@ -122,8 +122,8 @@
 
   .icon-link{
     display:flex; align-items:center; justify-content:center;
-    width:34px; height:34px;
-    border-radius:8px;
+    width:40px; height:40px;
+    border-radius:9px;
     border:1px solid var(--border);
     color:var(--text-muted);
     transition:color 150ms ease, border-color 150ms ease, transform 150ms ease;
@@ -131,8 +131,8 @@
     animation-fill-mode:backwards;
   }
   .icon-link:hover{color:var(--primary); border-color:var(--primary); transform:scale(1.15);}
-  .icon-link svg{width:16px; height:16px;}
-  .icon-link .icon-img{width:16px; height:16px; object-fit:contain; display:block;}
+  .icon-link svg{width:27px; height:27px;}
+  .icon-link .icon-img{width:27px; height:27px; object-fit:contain; display:block;}
   .site-nav-icons .icon-link:nth-child(1){animation-delay:1s;}
   .site-nav-icons .icon-link:nth-child(2){animation-delay:2s;}
   .site-nav-icons .icon-link:nth-child(3){animation-delay:3s;}
