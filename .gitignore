@@ -1,0 +1,13 @@
+# Working files — prototypes, base64 dumps, not the deliverable
+scratch/
+
+# Raw source material (reports, pptx/docx, extracted images) — reference only, not published
+materials/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+node_modules/
+
+# Claude Code local tooling config
+.claude/
