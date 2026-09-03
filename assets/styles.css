@@ -127,10 +127,10 @@
     border:1px solid var(--border);
     color:var(--text-muted);
     transition:color 150ms ease, border-color 150ms ease, transform 150ms ease;
-    animation:icon-wiggle 0.6s ease-in-out 1;
+    animation:icon-wiggle 12s ease-in-out infinite;
     animation-fill-mode:backwards;
   }
-  .icon-link:hover{color:var(--primary); border-color:var(--primary); transform:scale(1.15);}
+  .icon-link:hover{color:var(--primary); border-color:var(--primary); --iconHoverScale:1.15;}
   .icon-link svg{width:27px; height:27px;}
   .icon-link .icon-img{width:27px; height:27px; object-fit:contain; display:block;}
   .site-nav-icons .icon-link:nth-child(1){animation-delay:1s;}
@@ -138,12 +138,12 @@
   .site-nav-icons .icon-link:nth-child(3){animation-delay:3s;}
   .site-nav-icons .icon-link:nth-child(4){animation-delay:4s;}
   @keyframes icon-wiggle{
-    0%, 100%{transform:rotate(0deg);}
-    15%{transform:rotate(-12deg);}
-    30%{transform:rotate(10deg);}
-    45%{transform:rotate(-8deg);}
-    60%{transform:rotate(6deg);}
-    75%{transform:rotate(-3deg);}
+    0%, 5%, 100%{transform:rotate(0deg) scale(var(--iconHoverScale,1));}
+    0.75%{transform:rotate(-12deg) scale(var(--iconHoverScale,1));}
+    1.5%{transform:rotate(10deg) scale(var(--iconHoverScale,1));}
+    2.25%{transform:rotate(-8deg) scale(var(--iconHoverScale,1));}
+    3%{transform:rotate(6deg) scale(var(--iconHoverScale,1));}
+    3.75%{transform:rotate(-3deg) scale(var(--iconHoverScale,1));}
   }
 
   /* ---------- Main ---------- */

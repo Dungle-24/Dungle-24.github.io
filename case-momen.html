@@ -351,6 +351,11 @@
     var ticking = false;
     function updateActive(){
       ticking = false;
+      var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if(atBottom){
+        setActive('#' + sections[sections.length - 1].id);
+        return;
+      }
       var current = sections[0];
       for(var i = 0; i < sections.length; i++){
         if(sections[i].getBoundingClientRect().top - REF_Y <= 0) current = sections[i];
