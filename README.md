@@ -7,7 +7,7 @@ Personal portfolio site for IT Business Analyst internship applications.
 - [x] Homepage design direction agreed (Artifact preview)
 - [x] Homepage built as real code (`index.html` + `assets/styles.css`)
 - [x] Case study: Company Recruitment Management System (HRMS) — `case-hrms.html`
-- [ ] Case study: Intelligent Investment Support System (Stock Analytics)
+- [x] Case study: Intelligent Investment Support System (Stock Analytics) — `case-stock.html`
 - [ ] Case study: Momen — Photo-Based Expense Tracker
 - [ ] Deploy
 
