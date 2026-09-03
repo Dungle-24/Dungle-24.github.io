@@ -5,8 +5,8 @@ Personal portfolio site for IT Business Analyst internship applications.
 ## Status
 
 - [x] Homepage design direction agreed (Artifact preview)
-- [ ] Homepage built as real code
-- [ ] Case study: Company Recruitment Management System (HRMS)
+- [x] Homepage built as real code (`index.html` + `assets/styles.css`)
+- [x] Case study: Company Recruitment Management System (HRMS) — `case-hrms.html`
 - [ ] Case study: Intelligent Investment Support System (Stock Analytics)
 - [ ] Case study: Momen — Photo-Based Expense Tracker
 - [ ] Deploy
@@ -24,6 +24,8 @@ Every case study page (HRMS, Stock Analytics, Momen) follows this flow, in order
 The point is to show BA problem-solving thinking, not just list documents produced. Layout should make this flow visually scannable so a recruiter gets the analytical thread in a few seconds, not just a wall of deliverables.
 
 Only claim outcome metrics (%, $, time saved) that are real/measurable — course-project numbers that were never actually measured should be left out rather than presented as results (see HRMS case: no outcome metrics section, since those numbers were assumed for the class assignment, not measured).
+
+This also covers simulated budget figures, not just outcomes: all three projects (HRMS, Stock Analytics, Momen) are course assignments, so specific dollar amounts (e.g. "$11,000 budget") shouldn't appear even when just describing scope or constraints — describe the constraint qualitatively (e.g. "within the team's timeline") instead.
 
 ## Contact
 
