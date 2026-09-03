@@ -126,10 +126,28 @@
     border-radius:8px;
     border:1px solid var(--border);
     color:var(--text-muted);
+    transition:color 150ms ease, border-color 150ms ease, transform 150ms ease;
+    animation:icon-wiggle 0.6s ease-in-out 1;
+    animation-fill-mode:backwards;
   }
-  .icon-link:hover{color:var(--primary); border-color:var(--primary);}
+  .icon-link:hover{color:var(--primary); border-color:var(--primary); transform:scale(1.15);}
   .icon-link svg{width:16px; height:16px;}
   .icon-link .icon-img{width:16px; height:16px; object-fit:contain; display:block;}
+  .site-nav-icons .icon-link:nth-child(1){animation-delay:1s;}
+  .site-nav-icons .icon-link:nth-child(2){animation-delay:2s;}
+  .site-nav-icons .icon-link:nth-child(3){animation-delay:3s;}
+  .site-nav-icons .icon-link:nth-child(4){animation-delay:4s;}
+  @keyframes icon-wiggle{
+    0%, 100%{transform:rotate(0deg);}
+    15%{transform:rotate(-12deg);}
+    30%{transform:rotate(10deg);}
+    45%{transform:rotate(-8deg);}
+    60%{transform:rotate(6deg);}
+    75%{transform:rotate(-3deg);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .icon-link{animation:none;}
+  }
 
   /* ---------- Main ---------- */
   main{max-width:840px; margin:0 auto; padding:0 24px;}
@@ -262,7 +280,7 @@
   .wire-loops{
     position:absolute; left:2px; top:0;
     width:34px; height:252px;
-    z-index:20;
+    z-index:16;
     filter:drop-shadow(1px 1px 1.5px rgba(15,23,42,0.3));
     pointer-events:none;
   }
@@ -283,7 +301,7 @@
     font:inherit;
     text-align:left;
     transition:transform 480ms cubic-bezier(.2,.8,.2,1), box-shadow 320ms ease;
-    transform:translate(var(--tx,0), var(--ty,0)) scale(var(--s,1));
+    transform:translate(var(--tx,0), var(--ty,0)) scale(var(--s,1)) rotate(var(--hoverRot,0deg)) scale(var(--hoverScale,1));
     transform-style:preserve-3d;
     will-change:transform;
     touch-action:pan-y;
@@ -292,6 +310,7 @@
   .photo-card-item:focus-visible{outline:2px solid var(--focus); outline-offset:3px;}
   .photo-card-item.is-front{cursor:grab;}
   .photo-card-item:not(.is-front){cursor:default; pointer-events:none;}
+  .photo-card-item.is-front:hover{--hoverRot:-1.5deg; --hoverScale:1.04;}
 
   .card-face{
     position:absolute; inset:0;
@@ -473,14 +492,22 @@
     display:inline-flex; align-items:center; gap:6px;
     font-size:0.85rem; font-weight:600; text-decoration:none;
     color:var(--primary);
+    transition:color 150ms ease, transform 150ms ease, background 150ms ease;
   }
+  .repo-link:hover{color:var(--primary-strong); text-decoration:underline; transform:scale(1.05);}
   .repo-link svg{width:15px; height:15px;}
-  .case-links{display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  .case-links{display:flex; align-items:center; gap:18px; flex-wrap:wrap; flex-basis:100%; margin-top:2px;}
   .repo-link.view-case{
     padding:6px 12px;
     border-radius:999px;
     background:var(--primary-soft);
     color:var(--primary-strong);
+  }
+  .repo-link.view-case:hover{
+    background:var(--accent);
+    color:var(--accent-ink);
+    text-decoration:none;
+    transform:scale(1.06);
   }
 
   /* ---------- Education / certs: master-detail ---------- */
@@ -508,6 +535,7 @@
     width:100%;
     text-align:left;
     font:inherit;
+    color:var(--text);
     background:none;
     border:none;
     border-radius:8px;

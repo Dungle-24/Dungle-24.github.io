@@ -1,4 +1,4 @@
-<title>HRMS Case Study</title>
+<title>Momen Case Study</title>
 <link rel="stylesheet" href="assets/styles.css">
 
 <style>
@@ -67,6 +67,14 @@
     margin-top:24px;
   }
   @media (max-width:640px){ .gallery-2x2{grid-template-columns:1fr;} }
+  .gallery-row-4{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:16px;
+    margin-top:24px;
+  }
+  @media (max-width:900px){ .gallery-row-4{grid-template-columns:repeat(2,minmax(0,1fr));} }
+  @media (max-width:480px){ .gallery-row-4{grid-template-columns:1fr;} }
   .gallery-item{
     padding:0;
     border:1px solid var(--border);
@@ -183,9 +191,9 @@
   </a>
   <div class="site-nav-links">
     <a href="index.html">Home</a>
-    <a href="case-hrms.html" class="active">Case 01 · HRMS</a>
+    <a href="case-hrms.html">Case 01 · HRMS</a>
     <a href="case-stock.html">Case 02 · Stock</a>
-    <a href="case-momen.html">Case 03 · Momen</a>
+    <a href="case-momen.html" class="active">Case 03 · Momen</a>
     <a href="assets/CV_BusinessAnalyst_LeTrongHoangDung.pdf" target="_blank" rel="noopener">CV</a>
   </div>
   <div class="site-nav-icons">
@@ -207,7 +215,6 @@
 <nav class="page-progress" aria-label="On this page" id="pageProgress">
   <a href="#overview" data-progress="overview" class="active">Overview</a>
   <a href="#problem" data-progress="problem">Problem</a>
-  <a href="#asis" data-progress="asis">As-Is</a>
   <a href="#tobe" data-progress="tobe">To-Be</a>
   <a href="#stories" data-progress="stories">User Stories</a>
   <a href="#artifacts" data-progress="artifacts">Artifacts</a>
@@ -219,158 +226,101 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
           All case files
         </a>
-        <div><span class="case-id mono">CASE-01</span></div>
-        <h1>Company Recruitment Management System</h1>
-        <span class="case-meta">BA / Scrum Master · Mar 17 – May 15, 2025 · Hybrid Agile/Waterfall</span>
-        <p class="pitch">A web-based recruitment platform built to replace manual, paper-driven hiring for a simulated internal enterprise client — from requirement elicitation through UAT, covering six core modules end to end.</p>
+        <div><span class="case-id mono">CASE-03</span></div>
+        <h1>Momen — Photo-Based Expense Tracker</h1>
+        <span class="case-meta">BA / Full-Stack &amp; UI/UX · Mar–Jun 2026 · Mobile (Flutter)</span>
+        <p class="pitch">A private, close-circle photo-sharing app where a caption doubles as a spending record — built end to end by a team of five on Flutter, Supabase, and an offline-first architecture.</p>
       </section>
 
       <section id="problem" class="flow-step">
         <div class="eyebrow"><span class="num">01</span>Problem Statement</div>
-        <h2 class="section-title">Manual hiring had no visibility</h2>
-        <p>Traditional recruitment processes are inefficient, time-consuming, and error-prone due to manual workflows and lack of automation. Businesses face delays in candidate screening, challenges in tracking application progress, and limited visibility into recruitment performance.</p>
-        <h4>Who felt it</h4>
+        <h2 class="section-title">Sharing photos and logging spending shouldn't be two separate chores</h2>
+        <p>The team scoped Momen around three everyday frictions rather than a single incident or client brief:</p>
+        <h4>What problems are users facing today?</h4>
         <ul>
-          <li><b>HR Department</b> — the end users running job postings and candidate screening by hand.</li>
-          <li><b>Recruitment Manager</b> — needed pipeline visibility that spreadsheets couldn't give.</li>
-          <li><b>Candidates</b> — indirect users with no way to track where their application stood.</li>
+          <li><b>Privacy concerns</b> — people want to share photos without posting too publicly.</li>
+          <li><b>Scattered memories</b> — group photos and experiences end up spread across different camera rolls.</li>
+          <li><b>Tedious tracking</b> — cold financial figures are tedious to log by hand, so most people stop bothering.</li>
         </ul>
-      </section>
-
-      <section id="asis" class="flow-step">
-        <div class="eyebrow"><span class="num">02</span>As-Is Analysis</div>
-        <h2 class="section-title">How hiring actually worked</h2>
-        <p>Before touching a solution, the team spent the first week of the schedule on requirement analysis, a system workflow study, and a gap analysis — reviewing the recruitment process materials provided by the client stand-in to understand how job postings, approvals, and candidate evaluation actually happened.</p>
-        <h4>What that surfaced</h4>
-        <ul>
-          <li>Job posting approvals ran through informal, undocumented back-and-forth — no structured workflow.</li>
-          <li>Candidate status lived in scattered files, not a shared, trackable source of truth.</li>
-          <li>Every status change or interview invite meant a manual email — no automated notifications at all.</li>
-        </ul>
-        <div class="callout">That last gap — no automated notifications — is what turned into a concrete requirement: integrate email and Google Calendar so the system, not a person, sends the update.</div>
       </section>
 
       <section id="tobe" class="flow-step">
-        <div class="eyebrow"><span class="num">03</span>To-Be Solution</div>
-        <h2 class="section-title">Six modules, scoped to fit 61 days</h2>
-        <p>Requirements were prioritized with MoSCoW to protect the timeline: Candidate Management and Job Position Management were must-haves; extras like custom report generation were pushed out. The resulting scope:</p>
-        <h4>In-scope modules</h4>
+        <div class="eyebrow"><span class="num">02</span>To-Be Solution</div>
+        <h2 class="section-title">Four modules, one everyday habit</h2>
+        <p>Momen turns the act of taking a photo into the mechanism that solves all three problems at once:</p>
+        <h4>Momen's goal</h4>
         <ul>
-          <li><b>Candidate Management</b> — create, update, and track candidate profiles, resumes, and statuses.</li>
-          <li><b>Job Position Management</b> — create, publish, and manage job postings with approval workflows.</li>
-          <li><b>Recruitment Process Management</b> — interview scheduling, candidate evaluation, stage-based tracking.</li>
-          <li><b>Analytics &amp; Reporting</b> — KPI dashboards for time-to-hire, cost-per-hire, applicant funnel.</li>
-          <li><b>Integration</b> — email notifications and Google Calendar for scheduling.</li>
-          <li><b>User Management</b> — role-based access control and secure authentication.</li>
+          <li><b>Private by design</b> — a photo-sharing space limited to close friends only.</li>
+          <li><b>One memory bank</b> — gathering group photos and experiences into a single, easy-to-revisit place.</li>
+          <li><b>Spending without the chore</b> — turning the everyday habit of taking a photo into a natural, visual spending record.</li>
         </ul>
-        <h4>Explicitly out of scope</h4>
-        <p>Mobile app, AI-based CV evaluation, payroll integration, and post-hiring HR functions — cut to keep the 4-person team inside the 2-month timeline.</p>
-        <div class="stack-line">Stack: ReactJS · Node.js / Express.js · MongoDB · Google Calendar API · Nodemailer · JWT + RBAC</div>
-        <h4>What it looked like</h4>
-        <div class="gallery-2x2">
-          <button type="button" class="gallery-item" data-gallery="tobe-ui" data-caption="HR dashboard — Analytics &amp; Reporting">
-            <img src="assets/images/hrms-hr-dashboard-showing-total-candidates-op.png" alt="HR dashboard showing total candidates, open jobs, scheduled interviews, and a hiring performance chart">
-            <span class="cap">HR dashboard — Analytics &amp; Reporting</span>
-          </button>
-          <button type="button" class="gallery-item" data-gallery="tobe-ui" data-caption="Post a job — Job Position Management">
-            <img src="assets/images/hrms-post-a-job-form-with-salary-range-educat.png" alt="Post a job form with salary range, education, experience, and approval routing fields">
-            <span class="cap">Post a job — Job Position Management</span>
-          </button>
-          <button type="button" class="gallery-item" data-gallery="tobe-ui" data-caption="Candidate board — Candidate Management">
-            <img src="assets/images/hrms-candidates-board-with-all-applications-a.png" alt="Candidates board with All Applications and Shortlisted columns">
-            <span class="cap">Candidate board — Candidate Management</span>
-          </button>
-          <button type="button" class="gallery-item" data-gallery="tobe-ui" data-caption="Interview schedule — Recruitment Process Management">
-            <img src="assets/images/hrms-interview-schedule-list-with-send-mail-a.png" alt="Interview schedule list with send mail and reschedule actions per candidate">
-            <span class="cap">Interview schedule — Recruitment Process Management</span>
-          </button>
-        </div>
-        <button type="button" class="gallery-more-btn" data-gallery="tobe-ui">
-          <span>View 8 more screens</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-        <div class="gallery-extra" hidden>
-          <button type="button" class="gallery-item" data-gallery="tobe-ui" data-caption="Candidate homepage — job search &amp; listings">
-            <img src="assets/images/hrms-candidate-facing-homepage-with-job-searc.png" alt="Candidate-facing homepage with job search and latest job openings">
-          </button>
-          <button type="button" class="gallery-item" data-gallery="tobe-ui" data-caption="Login — User Management">
-            <img src="assets/images/hrms-login-screen-with-email-password-and-soc.png" alt="Login screen with email, password, and social sign-in">
-          </button>
-          <button type="button" class="gallery-item" data-gallery="tobe-ui" data-caption="Create account — User Management">
-            <img src="assets/images/hrms-create-account-screen-with-email-passwor.png" alt="Create account screen with email, password, and social sign-up">
-          </button>
-          <button type="button" class="gallery-item" data-gallery="tobe-ui" data-caption="Job openings — search &amp; filters">
-            <img src="assets/images/hrms-job-openings-list-with-search-filters-an.png" alt="Job openings list with search, filters, and pagination">
-          </button>
-          <button type="button" class="gallery-item" data-gallery="tobe-ui" data-caption="Job details — candidate view">
-            <img src="assets/images/hrms-job-details-page-with-description-respon.png" alt="Job details page with description, responsibilities, requirements, and company info">
-          </button>
-          <button type="button" class="gallery-item" data-gallery="tobe-ui" data-caption="Apply modal — Candidate Management">
-            <img src="assets/images/hrms-apply-job-modal-with-cover-letter-field.png" alt="Apply job modal with cover letter field">
-          </button>
-          <button type="button" class="gallery-item" data-gallery="tobe-ui" data-caption="My Applications — status tracking">
-            <img src="assets/images/hrms-my-applications-table-showing-applicatio.png" alt="My Applications table showing application status per job">
-          </button>
-          <button type="button" class="gallery-item" data-gallery="tobe-ui" data-caption="Notifications — Integration">
-            <img src="assets/images/hrms-notifications-dropdown-showing-approval.png" alt="Notifications dropdown showing approval requests and updates">
-          </button>
-        </div>
+        <h4>Four core modules</h4>
+        <ul>
+          <li><b>Auth</b> — multi-method authentication (email + password, phone OTP, email OTP, Google) and profile setup gating access to the rest of the app.</li>
+          <li><b>Feed &amp; Camera</b> — captures moments with custom real-time filters and shares them instantly within a close circle.</li>
+          <li><b>Spending</b> — automatically extracts expense data from photo captions and visualizes habits via dashboards.</li>
+          <li><b>Memories</b> — preserves shared group history with reactions and a time-capsule-style reveal mechanic.</li>
+        </ul>
+        <h4>Two mechanisms that make it work</h4>
+        <ul>
+          <li><b>Spending tracker from captions</b> — a short debounce after typing, then a regex scan for money formats like "30k", "2.5 million", or "50000 VND"; a single photo caption can become a full spending record without a separate entry step.</li>
+          <li><b>Offline-first posting</b> — tapping Post saves the entry to local storage immediately; with a connection it uploads right away, otherwise it queues and auto-syncs in the background, so the post feels instant either way.</li>
+        </ul>
+        <div class="stack-line">Stack: Flutter · Clean Architecture (Presentation / Domain / Data) · Riverpod · Supabase (Auth, PostgreSQL, Storage) · Row Level Security · GoRouter · Android Home Widget (Kotlin)</div>
+        <div class="callout">EXIF metadata is stripped from every photo before upload, and Row Level Security enforces access control at the database layer. Post-course roadmap: AI-assisted comment suggestions, real-time feed updates, spending leaderboards, and a native iOS widget.</div>
       </section>
 
       <section id="stories" class="flow-step">
-        <div class="eyebrow"><span class="num">04</span>User Stories &amp; Acceptance Criteria</div>
-        <h2 class="section-title">From the Jira backlog</h2>
-        <p>Requirements were written as Agile user stories and prioritized with MoSCoW. Three representative examples from the backlog:</p>
+        <div class="eyebrow"><span class="num">03</span>User Stories &amp; Acceptance Criteria</div>
+        <h2 class="section-title">Written from the feature set</h2>
+        <p>The team scoped features directly rather than keeping a formal backlog. Reframed as user stories, three representative examples:</p>
 
         <div class="story-card">
-          <p class="story-text">"As an HR Admin, I want to track candidate status in a dashboard, so I can monitor the recruitment pipeline effectively."</p>
-          <div class="ac"><b>Acceptance criteria —</b> the dashboard shows total candidates, open job count, and scheduled interviews at a glance, updated in real time as records change.</div>
+          <p class="story-text">"As a user, I want to add a caption with an amount and category to my photo, so my spending is tracked automatically without a separate entry step."</p>
+          <div class="ac"><b>Acceptance criteria —</b> typing a recognizable money format (e.g. "30k", "2.5 million", "50000 VND") in the caption auto-fills the amount and category on the spending entry before the post is confirmed.</div>
         </div>
         <div class="story-card">
-          <p class="story-text">"As an HR Admin, I want to publish a job posting through an approval workflow, so postings are reviewed before going live."</p>
-          <div class="ac"><b>Acceptance criteria —</b> a posting cannot be submitted without title, salary range, job type, and education/experience fields; it stays in a pending state until approved.</div>
+          <p class="story-text">"As a user, I want my post to go through even without internet, so I don't lose the moment while waiting for a connection."</p>
+          <div class="ac"><b>Acceptance criteria —</b> tapping Post always saves the entry to local storage first; with no connection, it queues and uploads automatically once connectivity returns, with no extra action from the user.</div>
         </div>
         <div class="story-card">
-          <p class="story-text">"As a Candidate, I want to see my application move through stages, so I know where I stand in the process."</p>
-          <div class="ac"><b>Acceptance criteria —</b> each application shows its current stage (Applied → Shortlisted → Interview → Decision), and the candidate is notified by email on every stage change.</div>
+          <p class="story-text">"As a user, I want to share photos only within a close circle, so I can be more open without worrying about a public audience."</p>
+          <div class="ac"><b>Acceptance criteria —</b> posts are visible only to the user's confirmed circle by default, and EXIF location and device metadata are stripped before the photo is stored.</div>
         </div>
       </section>
 
       <section id="artifacts" class="flow-step">
-        <div class="eyebrow"><span class="num">05</span>Supporting Artifacts</div>
-        <h2 class="section-title">How the work was planned and tracked</h2>
-        <p>Scope and schedule were managed with a Work Breakdown Structure, an Activity-on-Node critical path, and a Gantt chart, coordinated across a four-person team.</p>
-        <div class="gallery-2x2">
-          <button type="button" class="gallery-item" data-gallery="pm-artifacts" data-caption="Team structure &amp; reporting lines">
-            <img src="assets/images/hrms-team-structure-diagram-showing-sponsor-p.png" alt="Team structure diagram showing Sponsor, Project Manager, Scrum Master/BA, and Development Team roles">
-            <span class="cap">Team structure &amp; reporting lines</span>
+        <div class="eyebrow"><span class="num">04</span>Supporting Artifacts</div>
+        <h2 class="section-title">Built and running, not just mocked up</h2>
+        <p>Four screens from the working app, following the everyday flow: capture, post, auto-track spending, revisit later.</p>
+        <div class="gallery-row-4">
+          <button type="button" class="gallery-item" data-gallery="momen-ui" data-caption="Camera — real-time filters &amp; manual controls">
+            <img src="assets/images/momen-camera-screen-with-flash-and-exposure-co.png" alt="Camera screen with flash and exposure controls, a real-time filter applied, and bottom navigation for Memories, Dashboard, and Profile">
+            <span class="cap">Camera — real-time filters &amp; manual controls</span>
           </button>
-          <button type="button" class="gallery-item" data-gallery="pm-artifacts" data-caption="Work Breakdown Structure (WBS)">
-            <img src="assets/images/hrms-work-breakdown-structure-tree-from-initi.png" alt="Work Breakdown Structure tree from initiation through project closure">
-            <span class="cap">Work Breakdown Structure (WBS)</span>
+          <button type="button" class="gallery-item" data-gallery="momen-ui" data-caption="Feed — shared photos with spending tags">
+            <img src="assets/images/momen-feed-screen-showing-a-grid-of-shared-pho.png" alt="Feed screen showing a grid of shared photos, each tagged with a price such as 200.000vnd or 5.000.000vnd">
+            <span class="cap">Feed — shared photos with spending tags</span>
           </button>
-          <button type="button" class="gallery-item" data-gallery="pm-artifacts" data-caption="AON diagram — critical path">
-            <img src="assets/images/hrms-activity-on-node-network-diagram-showing.png" alt="Activity-on-Node network diagram showing task dependencies and the critical path">
-            <span class="cap">AON diagram — critical path</span>
+          <button type="button" class="gallery-item" data-gallery="momen-ui" data-caption="Caption to auto-detected spending entry">
+            <img src="assets/images/momen-photo-captioned-30k-chill-chill-and-coff.png" alt="Photo captioned '30k chill chill and coffee' with a spending entry below showing Amount (VND) 30.000 auto-filled from the caption">
+            <span class="cap">Caption → auto-detected spending entry</span>
           </button>
-          <button type="button" class="gallery-item" data-gallery="pm-artifacts" data-caption="Gantt chart — full schedule">
-            <img src="assets/images/hrms-gantt-chart-spanning-requirement-analysi.png" alt="Gantt chart spanning requirement analysis through deployment and post-launch support">
-            <span class="cap">Gantt chart — full schedule</span>
+          <button type="button" class="gallery-item" data-gallery="momen-ui" data-caption="Memories — reactions on a shared post">
+            <img src="assets/images/momen-a-shared-memory-post-with-a-caption-a-16.png" alt="A shared memory post with a caption, a 16 days ago timestamp, and heart, smile, and frown reaction counts">
+            <span class="cap">Memories — reactions on a shared post</span>
           </button>
         </div>
-        <h4>Deliverables</h4>
-        <ul>
-          <li>Requirements Document, UI Prototype (Figma), Testable Website, Test Report, Final System.</li>
-        </ul>
-        <p style="margin-top:14px;">UAT ran against all six in-scope modules before sign-off. Full source is on GitHub.</p>
+
+        <p style="margin-top:14px;">Full source is on GitHub.</p>
         <div class="case-footer" style="border-top:none; margin-top:8px; padding-top:0;">
-          <a class="repo-link" href="https://github.com/Nusuit/recruitment-website" target="_blank" rel="noopener">Repository
+          <a class="repo-link" href="https://github.com/Nusuit/momen.git" target="_blank" rel="noopener">Repository
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
           </a>
         </div>
       </section>
 
-      <footer class="sign">CASE-01 · HRMS · Lê Trọng Hoàng Dũng</footer>
+      <footer class="sign">CASE-03 · Momen · Lê Trọng Hoàng Dũng</footer>
     </main>
 
 <div class="lightbox" id="lightbox" hidden>
@@ -469,7 +419,10 @@
     });
     document.querySelectorAll('.gallery-more-btn').forEach(function(btn){
       btn.addEventListener('click', function(){
-        openGallery(btn.getAttribute('data-gallery'), 4);
+        var galleryName = btn.getAttribute('data-gallery');
+        var galleryItems = Array.prototype.slice.call(document.querySelectorAll('.gallery-item[data-gallery="' + galleryName + '"]'));
+        var firstExtra = document.querySelector('.gallery-extra .gallery-item[data-gallery="' + galleryName + '"]');
+        openGallery(galleryName, firstExtra ? galleryItems.indexOf(firstExtra) : 0);
       });
     });
 
