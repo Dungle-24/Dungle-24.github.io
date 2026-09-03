@@ -103,17 +103,28 @@
     text-transform:uppercase; letter-spacing:0.06em;
   }
   .site-nav-links{
-    display:flex; align-items:center; gap:2px;
+    display:flex; align-items:center; gap:6px;
     flex-wrap:wrap;
     overflow-x:auto;
   }
   .site-nav-links a{
+    position:relative;
     font-size:0.85rem;
     padding:8px 12px;
     border-radius:8px;
     text-decoration:none;
     color:var(--text-muted);
     white-space:nowrap;
+  }
+  .site-nav-links a:not(:first-child)::before{
+    content:'';
+    position:absolute;
+    left:-4px;
+    top:50%;
+    transform:translateY(-50%);
+    width:1px;
+    height:16px;
+    background:var(--border);
   }
   .site-nav-links a:hover{background:var(--surface-2); color:var(--text);}
   .site-nav-links a.active{background:var(--primary-soft); color:var(--primary-strong); font-weight:600;}
