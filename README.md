@@ -27,6 +27,8 @@ Only claim outcome metrics (%, $, time saved) that are real/measurable — cours
 
 This also covers simulated budget figures, not just outcomes: all three projects (HRMS, Stock Analytics, Momen) are course assignments, so specific dollar amounts (e.g. "$11,000 budget") shouldn't appear even when just describing scope or constraints — describe the constraint qualitatively (e.g. "within the team's timeline") instead.
 
+Same for simulated/AI-generated user research: if a source report contains a "user interview" that was actually AI-generated (as in the Stock Analytics report), never quote or attribute it as real primary research. Drop it, or reframe as the team's own analysis/reasoning without a fake "user said X".
+
 ## Contact
 
 - Email: dungletronghoang@gmail.com
