@@ -495,19 +495,38 @@
 (function(){
   try{
     var links = Array.prototype.slice.call(document.querySelectorAll('.page-progress a'));
-    if(!links.length || !('IntersectionObserver' in window)) return;
-    var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          var id = '#' + e.target.id;
-          links.forEach(function(a){
-            a.classList.toggle('active', a.getAttribute('href') === id);
-          });
-        }
-      });
-    }, {rootMargin:'-40% 0px -55% 0px'});
-    sections.forEach(function(s){ if(s) io.observe(s); });
+    if(!links.length) return;
+    var sections = links
+      .map(function(a){ return document.querySelector(a.getAttribute('href')); })
+      .filter(Boolean);
+
+    function setActive(id){
+      links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === id); });
+    }
+
+    var REF_Y = 96;
+    var ticking = false;
+    function updateActive(){
+      ticking = false;
+      var current = sections[0];
+      for(var i = 0; i < sections.length; i++){
+        if(sections[i].getBoundingClientRect().top - REF_Y <= 0) current = sections[i];
+      }
+      setActive('#' + current.id);
+    }
+    function onScroll(){
+      if(!ticking){
+        ticking = true;
+        requestAnimationFrame(updateActive);
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+    links.forEach(function(a){
+      a.addEventListener('click', function(){ setActive(a.getAttribute('href')); });
+    });
+    updateActive();
   }catch(e){}
 })();
 
