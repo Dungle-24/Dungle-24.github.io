@@ -145,9 +145,6 @@
     60%{transform:rotate(6deg);}
     75%{transform:rotate(-3deg);}
   }
-  @media (prefers-reduced-motion: reduce){
-    .icon-link{animation:none;}
-  }
 
   /* ---------- Main ---------- */
   main{max-width:840px; margin:0 auto; padding:0 24px;}
@@ -261,7 +258,9 @@
     display:flex;
     align-items:flex-start;
     padding-left:12px;
+    transition:transform 300ms ease;
   }
+  .album-frame:hover{transform:rotate(-1.5deg) scale(1.04);}
   .punch-col{
     position:absolute; left:20px; top:0;
     width:11px; height:252px;
@@ -301,7 +300,7 @@
     font:inherit;
     text-align:left;
     transition:transform 480ms cubic-bezier(.2,.8,.2,1), box-shadow 320ms ease;
-    transform:translate(var(--tx,0), var(--ty,0)) scale(var(--s,1)) rotate(var(--hoverRot,0deg)) scale(var(--hoverScale,1));
+    transform:translate(var(--tx,0), var(--ty,0)) scale(var(--s,1));
     transform-style:preserve-3d;
     will-change:transform;
     touch-action:pan-y;
@@ -310,7 +309,6 @@
   .photo-card-item:focus-visible{outline:2px solid var(--focus); outline-offset:3px;}
   .photo-card-item.is-front{cursor:grab;}
   .photo-card-item:not(.is-front){cursor:default; pointer-events:none;}
-  .photo-card-item.is-front:hover{--hoverRot:-1.5deg; --hoverScale:1.04;}
 
   .card-face{
     position:absolute; inset:0;
