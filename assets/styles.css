@@ -475,6 +475,13 @@
     color:var(--primary);
   }
   .repo-link svg{width:15px; height:15px;}
+  .case-links{display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  .repo-link.view-case{
+    padding:6px 12px;
+    border-radius:999px;
+    background:var(--primary-soft);
+    color:var(--primary-strong);
+  }
 
   /* ---------- Education / certs: master-detail ---------- */
   .creds2{
