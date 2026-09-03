@@ -32,6 +32,15 @@
   </div>
 </nav>
 
+<nav class="page-progress" aria-label="On this page" id="pageProgress">
+  <a href="#cover" data-progress="cover" class="active">Cover</a>
+  <a href="#summary" data-progress="summary">Summary</a>
+  <a href="#matrix" data-progress="matrix">Capability Matrix</a>
+  <a href="#cases" data-progress="cases">Case Files</a>
+  <a href="#education" data-progress="education">Credentials</a>
+  <a href="#contact" data-progress="contact">Contact</a>
+</nav>
+
 <main>
       <section id="cover">
         <div class="hero">
@@ -480,6 +489,25 @@
     });
 
     render();
+  }catch(e){}
+})();
+
+(function(){
+  try{
+    var links = Array.prototype.slice.call(document.querySelectorAll('.page-progress a'));
+    if(!links.length || !('IntersectionObserver' in window)) return;
+    var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var id = '#' + e.target.id;
+          links.forEach(function(a){
+            a.classList.toggle('active', a.getAttribute('href') === id);
+          });
+        }
+      });
+    }, {rootMargin:'-40% 0px -55% 0px'});
+    sections.forEach(function(s){ if(s) io.observe(s); });
   }catch(e){}
 })();
 
