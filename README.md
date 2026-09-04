@@ -9,7 +9,7 @@ Personal portfolio site for IT Business Analyst internship applications.
 - [x] Case study: Company Recruitment Management System (HRMS) — `case-hrms.html`
 - [x] Case study: Real-Time Stock Analytics Platform — `case-stock.html`
 - [x] Case study: Memoney — Photo-Based Expense Tracker — `case-momen.html`
-- [ ] Deploy
+- [x] Deploy — [dungle-24.github.io](https://dungle-24.github.io/)
 
 ## Case study content structure
 
