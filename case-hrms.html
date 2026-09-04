@@ -185,7 +185,7 @@
     <a href="index.html">Home</a>
     <a href="case-hrms.html" class="active">Case 01 · HRMS</a>
     <a href="case-stock.html">Case 02 · Stock</a>
-    <a href="case-momen.html">Case 03 · Momen</a>
+    <a href="case-momen.html">Case 03 · Memoney</a>
     <a href="assets/CV_BusinessAnalyst_LeTrongHoangDung.pdf" target="_blank" rel="noopener">CV</a>
   </div>
   <div class="site-nav-icons">
@@ -252,7 +252,7 @@
 
       <section id="tobe" class="flow-step">
         <div class="eyebrow"><span class="num">03</span>To-Be Solution</div>
-        <h2 class="section-title">Six modules, scoped to fit 61 days</h2>
+        <h2 class="section-title">Six modules, scoped to fit a 2-month timeline</h2>
         <p>Requirements were prioritized with MoSCoW to protect the timeline: Candidate Management and Job Position Management were must-haves; extras like custom report generation were pushed out. The resulting scope:</p>
         <h4>In-scope modules</h4>
         <ul>
@@ -324,16 +324,23 @@
 
         <div class="story-card">
           <p class="story-text">"As an HR Admin, I want to track candidate status in a dashboard, so I can monitor the recruitment pipeline effectively."</p>
-          <div class="ac"><b>Acceptance criteria —</b> the dashboard shows total candidates, open job count, and scheduled interviews at a glance, updated in real time as records change.</div>
+          <div class="ac"><b>Given</b> an HR Admin is viewing the dashboard, <b>when</b> a candidate's status or a job's interview schedule changes, <b>then</b> the total candidates, open job count, and scheduled interview counts update in real time.</div>
         </div>
         <div class="story-card">
           <p class="story-text">"As an HR Admin, I want to publish a job posting through an approval workflow, so postings are reviewed before going live."</p>
-          <div class="ac"><b>Acceptance criteria —</b> a posting cannot be submitted without title, salary range, job type, and education/experience fields; it stays in a pending state until approved.</div>
+          <div class="ac"><b>Given</b> a complete job posting (title, salary range, job type, education/experience), <b>when</b> an HR Admin submits it, <b>then</b> it enters a pending state and stays there until an Admin approves it.</div>
         </div>
         <div class="story-card">
           <p class="story-text">"As a Candidate, I want to see my application move through stages, so I know where I stand in the process."</p>
-          <div class="ac"><b>Acceptance criteria —</b> each application shows its current stage (Applied → Shortlisted → Interview → Decision), and the candidate is notified by email on every stage change.</div>
+          <div class="ac"><b>Given</b> a candidate has an active application, <b>when</b> its stage changes (Applied → Shortlisted → Interview → Decision), <b>then</b> the candidate's application view updates to the new stage and the candidate receives an email notification.</div>
         </div>
+
+        <h4>Core Business Rules</h4>
+        <ul>
+          <li>Three in-scope user roles — <b>Admin (HR)</b>, <b>Candidate</b>, and <b>Interviewer</b> — each gated by JWT-based RBAC; a separate external recruiter portal was explicitly out of scope.</li>
+          <li>A job posting cannot go live without title, salary range, job type, and education/experience fields, and stays in a pending state until an Admin approves it.</li>
+          <li>Every application stage change (Applied → Shortlisted → Interview → Decision) triggers an automatic email to the candidate — no status update happens without a matching notification.</li>
+        </ul>
       </section>
 
       <section id="artifacts" class="flow-step">

@@ -13,7 +13,7 @@
     <a href="index.html" class="active">Home</a>
     <a href="case-hrms.html">Case 01 · HRMS</a>
     <a href="case-stock.html">Case 02 · Stock</a>
-    <a href="case-momen.html">Case 03 · Momen</a>
+    <a href="case-momen.html">Case 03 · Memoney</a>
     <a href="assets/CV_BusinessAnalyst_LeTrongHoangDung.pdf" target="_blank" rel="noopener">CV</a>
   </div>
   <div class="site-nav-icons">
@@ -188,15 +188,22 @@
             <h3>Company Recruitment Management System</h3>
             <span class="case-meta">BA / Scrum Master · Mar–May 2025 · Hybrid Agile/Waterfall</span>
           </div>
-          <h4>Problem</h4>
-          <p class="problem">Manual recruitment left HR with low visibility into candidates, frequent errors, and slow hiring cycles.</p>
-          <h4>What I did</h4>
-          <ul>
-            <li>Elicited functional requirements, wrote user stories, and managed the product backlog in Jira across 4 hybrid Agile/Waterfall sprints.</li>
-            <li>Designed UI/UX wireframes and interactive prototypes in Figma for the candidate portal and HR dashboard (~35 screens).</li>
-            <li>Built the WBS, Gantt chart, and AON critical-path diagram; tracked cost with bottom-up estimation and EVM.</li>
-            <li>Ran UAT against the six in-scope modules before sign-off.</li>
-          </ul>
+          <div class="case-body">
+            <div class="case-body-text">
+              <h4>Problem</h4>
+              <p class="problem">Manual recruitment left HR with low visibility into candidates, frequent errors, and slow hiring cycles.</p>
+              <h4>What I did</h4>
+              <ul>
+                <li>Elicited functional requirements, wrote user stories, and managed the product backlog in Jira across 4 hybrid Agile/Waterfall sprints.</li>
+                <li>Designed UI/UX wireframes and interactive prototypes in Figma for the candidate portal and HR dashboard (~35 screens).</li>
+                <li>Built the WBS, Gantt chart, and AON critical-path diagram; tracked cost with bottom-up estimation and EVM.</li>
+                <li>Ran UAT against the six in-scope modules before sign-off.</li>
+              </ul>
+                          </div>
+            <div class="case-media single">
+              <img src="assets/images/hrms-hr-dashboard-showing-total-candidates-op.png" alt="HR dashboard showing total candidates, open jobs, scheduled interviews, and a hiring performance chart">
+            </div>
+          </div>
           <h4>Outcome</h4>
           <div class="metric-chips">
             <span class="metric-chip"><b>6</b> of 6 modules built and working end-to-end</span>
@@ -218,18 +225,25 @@
         <article class="case-file">
           <div class="case-head">
             <span class="case-id mono">CASE-02</span>
-            <h3>Intelligent Investment Support System</h3>
+            <h3>Real-Time Stock Analytics Platform</h3>
             <span class="case-meta">System / Business Analyst · Nov 2025–Feb 2026 · Microservices</span>
           </div>
-          <h4>Problem</h4>
-          <p class="problem">Individual investors track stocks across scattered spreadsheets and tools — no open, modular platform for real-time, multi-source portfolio analytics.</p>
-          <h4>What I did</h4>
-          <ul>
-            <li>Gathered functional and non-functional requirements for a real-time stock analytics platform.</li>
-            <li>Modeled the system with Use Case, Activity, Sequence, Class, and State diagrams across a 5-service microservices architecture.</li>
-            <li>Designed the ERD and specified REST APIs plus WebSocket data flows, including Redis caching and Kafka pub/sub.</li>
-            <li>Documented the design rationale — why Kafka over direct WebSocket, why add Redis Streams, why split services — for the technical review.</li>
-          </ul>
+          <div class="case-body">
+            <div class="case-body-text">
+              <h4>Problem</h4>
+              <p class="problem">Individual investors track stocks across scattered spreadsheets and tools — no open, modular platform for real-time, multi-source portfolio analytics.</p>
+              <h4>What I did</h4>
+              <ul>
+                <li>Gathered functional and non-functional requirements for a real-time stock analytics platform.</li>
+                <li>Modeled the system with Use Case, Activity, Sequence, Class, and State diagrams across a 5-service microservices architecture.</li>
+                <li>Designed the ERD and specified REST APIs plus WebSocket data flows, including Redis caching and Kafka pub/sub.</li>
+                <li>Documented the design rationale — why Kafka over direct WebSocket, why add Redis Streams, why split services — for the technical review.</li>
+              </ul>
+                          </div>
+            <div class="case-media single">
+              <img src="assets/images/stock-market-dashboard-with-a-stock-heatmap-ma.jpg" alt="Market dashboard with a stock heatmap, market statistics, and featured news">
+            </div>
+          </div>
           <h4>Outcome</h4>
           <div class="metric-chips">
             <span class="metric-chip"><b>5</b> services specified end-to-end</span>
@@ -251,17 +265,25 @@
         <article class="case-file">
           <div class="case-head">
             <span class="case-id mono">CASE-03</span>
-            <h3>Momen — Photo-Based Expense Tracker</h3>
+            <h3>Memoney — Photo-Based Expense Tracker</h3>
             <span class="case-meta">BA / Full-Stack &amp; UI/UX · Mar–Jun 2026 · Mobile (Flutter)</span>
           </div>
-          <h4>Problem</h4>
-          <p class="problem">Users want to share moments with close friends without posting publicly — and personal expense tracking stays disconnected from how they actually spend, through photos and captions.</p>
-          <h4>What I did</h4>
-          <ul>
-            <li>Mapped three user pain points — privacy, scattered memories, tedious expense tracking — to four core modules: Auth, Feed &amp; Camera, Spending, and Memories.</li>
-            <li>Specified the offline-first posting flow (local save → upload queue → background sync) and the regex-based caption-to-expense extraction logic.</li>
-            <li>Documented the Clean Architecture layering (Presentation / Domain / Data) and the four-phase authentication flow, backed by Supabase (Auth, PostgreSQL, Row Level Security).</li>
-          </ul>
+          <div class="case-body">
+            <div class="case-body-text">
+              <h4>Problem</h4>
+              <p class="problem">Users want to share moments with close friends without posting publicly — and personal expense tracking stays disconnected from how they actually spend, through photos and captions.</p>
+              <h4>What I did</h4>
+              <ul>
+                <li>Mapped three user pain points — privacy, scattered memories, tedious expense tracking — to four core modules: Auth, Feed &amp; Camera, Spending, and Memories.</li>
+                <li>Specified the offline-first posting flow (local save → upload queue → background sync) and the regex-based caption-to-expense extraction logic.</li>
+                <li>Documented the Clean Architecture layering (Presentation / Domain / Data) and the four-phase authentication flow, backed by Supabase (Auth, PostgreSQL, Row Level Security).</li>
+              </ul>
+                          </div>
+            <div class="case-media multi">
+              <img src="assets/images/momen-feed-screen-showing-a-grid-of-shared-pho.png" alt="Feed screen showing a grid of shared photos, each tagged with a price such as 200.000vnd or 5.000.000vnd">
+              <img src="assets/images/momen-photo-captioned-30k-chill-chill-and-coff.png" alt="Photo captioned '30k chill chill and coffee' with a spending entry below showing Amount (VND) 30.000 auto-filled from the caption">
+            </div>
+          </div>
           <h4>Outcome</h4>
           <div class="metric-chips">
             <span class="metric-chip"><b>4</b> core modules shipped</span>
