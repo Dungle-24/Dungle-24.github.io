@@ -741,6 +741,27 @@
   }
   .copy-btn.is-copied .copy-tooltip{opacity:1; transform:translate(-50%, 0);}
 
+  /* Small easter egg on the Phone card: a cat peeking over the top edge.
+     Split into two layers so the card can visually clip its body while its
+     front paws still overlap the border on top — .peek-cat sits behind the
+     card (negative z-index), .peek-cat-paws sits in front (positive). */
+  .peek-cat, .peek-cat-paws{
+    position:absolute; right:20px;
+    pointer-events:none;
+    transition:transform 300ms ease-out;
+  }
+  .peek-cat{top:-21px; z-index:-1;}
+  .peek-cat-paws{top:-2px; right:22px; z-index:1;}
+  .contact-cell:hover .peek-cat,
+  .contact-cell:hover .peek-cat-paws{transform:translateY(-6px);}
+  .peek-cat .cat-eyes-awake{opacity:0; transition:opacity 200ms ease;}
+  .peek-cat .cat-eyes-sleepy{opacity:1; transition:opacity 200ms ease;}
+  .contact-cell:hover .cat-eyes-sleepy{opacity:0;}
+  .contact-cell:hover .cat-eyes-awake{opacity:1;}
+  @media (prefers-reduced-motion: reduce){
+    .peek-cat, .peek-cat-paws{transition:none;}
+  }
+
   /* External-link cue on LinkedIn/GitHub, same slot as .copy-btn so all four
      cards share one right-aligned action icon. */
   .contact-item .ext-icon{
