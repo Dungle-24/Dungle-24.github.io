@@ -166,6 +166,21 @@
   }
   section:last-of-type{border-bottom:none;}
 
+  /* Sections fade up as they scroll into view. .reveal-on is set by script
+     before first paint, so with JS off every section just stays visible. */
+  .reveal-on main > section{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity 450ms ease, transform 450ms ease;
+  }
+  .reveal-on main > section.is-visible{opacity:1; transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal-on main > section{opacity:1; transform:none; transition:none;}
+  }
+  @media print{
+    .reveal-on main > section{opacity:1; transform:none;}
+  }
+
   .eyebrow{
     display:flex; align-items:center; gap:10px;
     font-family:'IBM Plex Mono',monospace;
