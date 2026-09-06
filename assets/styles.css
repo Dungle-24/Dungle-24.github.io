@@ -741,32 +741,31 @@
   }
   .copy-btn.is-copied .copy-tooltip{opacity:1; transform:translate(-50%, 0);}
 
-  /* Small easter egg on the Phone card: a cat resting its chin on the top
-     edge, paws planted flat on the border. Split into two layers so the card
-     can visually cover its chest while the paws still overlap the border on
-     top — .peek-cat sits behind the card (negative z-index), .peek-cat-paws
-     sits in front (positive). Idle already shows the whole face (ears,
-     eyes, nose, mouth); hovering wakes it up and lifts the chest into view. */
-  .peek-cat, .peek-cat-paws{
-    position:absolute;
-    pointer-events:none;
-  }
+  /* Small easter egg on the Phone card: a cat resting its chin on paws that
+     are planted on the border and never move. Idle shows the whole face
+     (ears, eyes, nose, mouth) with the forearms tucked out of sight behind
+     the card. Hovering lifts just the head/shoulders ~17px (not a long
+     dangling body) — as they rise, the forearms drawn in the same artwork
+     stretch into view to visibly bridge shoulder to the fixed paws, instead
+     of the paws drifting apart from the body. */
   .peek-cat{
-    top:-68px; right:12px;
+    position:absolute; top:-54px; right:12px;
     z-index:-1;
-    transform:translateY(38px);
-    transition:transform 340ms cubic-bezier(0.34,1.56,0.64,1);
+    pointer-events:none;
+    transform:translateY(17px);
+    transition:transform 320ms cubic-bezier(0.34,1.56,0.64,1);
   }
   .peek-cat-paws{
-    top:-6px; right:14px;
+    position:absolute; top:-6px; right:12px;
     z-index:1;
+    pointer-events:none;
   }
   .contact-cell:hover .peek-cat{transform:translateY(0);}
   .peek-cat .cat-eyes-awake{opacity:0; transition:opacity 200ms ease;}
   .peek-cat .cat-eyes-sleepy{opacity:1; transition:opacity 200ms ease;}
   .contact-cell:hover .cat-eyes-sleepy{opacity:0;}
   .contact-cell:hover .cat-eyes-awake{opacity:1;}
-  .peek-cat .cat-tail{transform-origin:35px 64px;}
+  .peek-cat .cat-tail{transform-origin:34px 46px;}
   @keyframes cat-tail-wag{
     0%, 100%{transform:rotate(-10deg);}
     50%{transform:rotate(10deg);}
