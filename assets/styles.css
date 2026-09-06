@@ -741,25 +741,42 @@
   }
   .copy-btn.is-copied .copy-tooltip{opacity:1; transform:translate(-50%, 0);}
 
-  /* Small easter egg on the Phone card: a cat peeking over the top edge.
-     Split into two layers so the card can visually clip its body while its
-     front paws still overlap the border on top — .peek-cat sits behind the
-     card (negative z-index), .peek-cat-paws sits in front (positive). */
+  /* Small easter egg on the Phone card: a cat that pops up from behind the
+     top edge on hover. Split into two layers so the card can visually cover
+     its body/chest while its front paws still overlap the border on top —
+     .peek-cat sits behind the card (negative z-index), .peek-cat-paws sits
+     in front (positive). Idle, only the ears and the tops of the eyes clear
+     the border; hovering springs the whole head and chest up above it. */
   .peek-cat, .peek-cat-paws{
-    position:absolute; right:20px;
+    position:absolute;
     pointer-events:none;
-    transition:transform 300ms ease-out;
   }
-  .peek-cat{top:-21px; z-index:-1;}
-  .peek-cat-paws{top:-2px; right:22px; z-index:1;}
-  .contact-cell:hover .peek-cat,
-  .contact-cell:hover .peek-cat-paws{transform:translateY(-6px);}
+  .peek-cat{
+    top:-52px; right:12px;
+    z-index:-1;
+    transform:translateY(34px);
+    transition:transform 340ms cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .peek-cat-paws{
+    top:-4px; right:14px;
+    z-index:1;
+    transition:transform 340ms cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .contact-cell:hover .peek-cat{transform:translateY(0);}
+  .contact-cell:hover .peek-cat-paws{transform:translateY(-4px);}
   .peek-cat .cat-eyes-awake{opacity:0; transition:opacity 200ms ease;}
   .peek-cat .cat-eyes-sleepy{opacity:1; transition:opacity 200ms ease;}
   .contact-cell:hover .cat-eyes-sleepy{opacity:0;}
   .contact-cell:hover .cat-eyes-awake{opacity:1;}
+  .peek-cat .cat-tail{transform-origin:35px 64px;}
+  @keyframes cat-tail-wag{
+    0%, 100%{transform:rotate(-10deg);}
+    50%{transform:rotate(10deg);}
+  }
+  .contact-cell:hover .peek-cat .cat-tail{animation:cat-tail-wag 0.7s ease-in-out infinite;}
   @media (prefers-reduced-motion: reduce){
     .peek-cat, .peek-cat-paws{transition:none;}
+    .contact-cell:hover .peek-cat .cat-tail{animation:none;}
   }
 
   /* External-link cue on LinkedIn/GitHub, same slot as .copy-btn so all four
