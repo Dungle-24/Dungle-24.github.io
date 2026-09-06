@@ -510,7 +510,6 @@
       links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === id); });
     }
 
-    var REF_Y = 96;
     var ticking = false;
     function updateActive(){
       ticking = false;
@@ -519,9 +518,14 @@
         setActive('#' + sections[sections.length - 1].id);
         return;
       }
+      // A section counts as "current" once its heading has scrolled to roughly
+      // a third down the viewport, not only once it's nearly at the very top —
+      // otherwise the sidebar keeps crediting the previous section long after
+      // the next one has filled most of the screen.
+      var refY = Math.max(120, window.innerHeight * 0.3);
       var current = sections[0];
       for(var i = 0; i < sections.length; i++){
-        if(sections[i].getBoundingClientRect().top - REF_Y <= 0) current = sections[i];
+        if(sections[i].getBoundingClientRect().top - refY <= 0) current = sections[i];
       }
       setActive('#' + current.id);
     }
