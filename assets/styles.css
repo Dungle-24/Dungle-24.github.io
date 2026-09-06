@@ -185,7 +185,7 @@
   }
 
   .section-title{font-size:1.6rem; margin-bottom:8px;}
-  .section-lede{color:var(--text-muted); max-width:62ch; margin-top:6px;}
+  .section-lede{color:var(--text-muted); max-width:62ch; margin-top:6px; text-wrap:pretty;}
 
   /* ---------- Page progress (Home only) ---------- */
   .page-progress{
