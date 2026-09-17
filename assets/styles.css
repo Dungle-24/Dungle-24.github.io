@@ -147,10 +147,33 @@
   .icon-link:hover{color:var(--primary); border-color:var(--primary); --iconHoverScale:1.15;}
   .icon-link svg{width:27px; height:27px;}
   .icon-link .icon-img{width:27px; height:27px; object-fit:contain; display:block;}
-  .site-nav-icons .icon-link:nth-child(1){animation-delay:1s;}
-  .site-nav-icons .icon-link:nth-child(2){animation-delay:2s;}
-  .site-nav-icons .icon-link:nth-child(3){animation-delay:3s;}
-  .site-nav-icons .icon-link:nth-child(4){animation-delay:4s;}
+  .site-nav-icons .icon-link:nth-child(2){animation-delay:1s;}
+  .site-nav-icons .icon-link:nth-child(3){animation-delay:2s;}
+  .site-nav-icons .icon-link:nth-child(4){animation-delay:3s;}
+  .site-nav-icons .icon-link:nth-child(5){animation-delay:4s;}
+
+  .theme-toggle{
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    width:40px; height:40px;
+    border-radius:9px;
+    border:1px solid var(--border);
+    background:transparent;
+    color:var(--text-muted);
+    cursor:pointer;
+    padding:0;
+    transition:color 150ms ease, border-color 150ms ease;
+  }
+  .theme-toggle:hover{color:var(--primary); border-color:var(--primary);}
+  .theme-toggle svg{width:22px; height:22px;}
+  .theme-toggle .horizon-shape{
+    transition:transform 500ms cubic-bezier(0,0,0.15,1);
+    transform:translateY(0);
+  }
+  :root[data-theme="dark"] .theme-toggle .horizon-shape{transform:translateY(50%);}
+  @media (prefers-reduced-motion: reduce){
+    .theme-toggle .horizon-shape{transition:none;}
+  }
   @keyframes icon-wiggle{
     0%, 5%, 100%{transform:rotate(0deg) scale(var(--iconHoverScale,1));}
     0.75%{transform:rotate(-12deg) scale(var(--iconHoverScale,1));}

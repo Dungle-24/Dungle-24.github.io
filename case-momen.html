@@ -2,6 +2,16 @@
 <link rel="stylesheet" href="assets/styles.css">
 
 <script>
+/* Default to light regardless of OS setting; remember an explicit toggle choice. */
+(function(){
+  try{
+    var saved = localStorage.getItem('theme');
+    document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
+  }catch(e){}
+})();
+</script>
+
+<script>
 /* Fade each section up as it scrolls into view. Set up before first paint so
    nothing flashes, and skipped when motion is reduced or IntersectionObserver
    is missing — in both cases every section simply stays visible. */
@@ -226,6 +236,15 @@
     <a href="assets/CV_BusinessAnalyst_LeTrongHoangDung.pdf?v=2" target="_blank" rel="noopener">CV</a>
   </div>
   <div class="site-nav-icons">
+    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode">
+      <svg viewBox="0 0 32 32" aria-hidden="true" fill="currentColor">
+        <defs><clipPath id="horizonClip"><path d="M0 0h32v29h-32z"/></clipPath></defs>
+        <path d="M30.7 29.9H1.3c-.7 0-1.3.5-1.3 1.1 0 .6.6 1 1.3 1h29.3c.7 0 1.3-.5 1.3-1.1.1-.5-.5-1-1.2-1z"/>
+        <g clip-path="url(#horizonClip)">
+          <path class="horizon-shape" d="M16 8.8c-3.4 0-6.1 2.8-6.1 6.1s2.7 6.3 6.1 6.3 6.1-2.8 6.1-6.1-2.7-6.3-6.1-6.3zm13.3 11L26 15l3.3-4.8c.3-.5.1-1.1-.5-1.2l-5.7-1-1-5.7c-.1-.6-.8-.8-1.2-.5L16 5.1l-4.8-3.3c-.5-.4-1.2-.1-1.3.4L8.9 8 3.2 9c-.6.1-.8.8-.5 1.2L6 15l-3.3 4.8c-.3.5-.1 1.1.5 1.2l5.7 1 1 5.7c.1.6.8.8 1.2.5L16 25l4.8 3.3c.5.3 1.1.1 1.2-.5l1-5.7 5.7-1c.7-.1.9-.8.6-1.3zM16 22.5A7.6 7.6 0 0 1 8.3 15c0-4.2 3.5-7.5 7.7-7.5s7.7 3.4 7.7 7.5c0 4.2-3.4 7.5-7.7 7.5z"/>
+        </g>
+      </svg>
+    </button>
     <a class="icon-link" href="mailto:dungletronghoang@gmail.com" aria-label="Email">
       <img class="icon-img" src="assets/images/home-gmail.avif" alt="Gmail">
     </a>
@@ -240,6 +259,25 @@
     </a>
   </div>
 </nav>
+
+<script>
+(function(){
+  try{
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    function apply(theme){
+      document.documentElement.setAttribute('data-theme', theme);
+      btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    apply(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+    btn.addEventListener('click', function(){
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      try{ localStorage.setItem('theme', next); }catch(e){}
+      apply(next);
+    });
+  }catch(e){}
+})();
+</script>
 
 <nav class="page-progress" aria-label="On this page" id="pageProgress">
   <a href="#overview" data-progress="overview" class="active">Overview</a>
